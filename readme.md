@@ -32,7 +32,7 @@ CSP BankAssist is a web-based banking system designed for Customer Service Point
 ## Technologies Used
 - **Frontend:** HTML, CSS  
 - **Backend:** Java (Servlets, JSP)  
-- **Database:** MySQL / Supabase  
+- **Database:** Oracle MySQL
 - **Server:** Apache Tomcat  
 
 ## Project Structure
@@ -69,5 +69,5 @@ CSP BankAssist is a web-based banking system designed for Customer Service Point
 - **Multi-factor authentication** for enhanced security.  
 
 ## Author
-**Gowtham**, **Harshitha**, **Deepak**, **Bhavitha**
+**Gowtham - 231FA04094**, **Harshitha - 231FA04097**, **Deepak - 231FA04322**, **Bhavitha - 231FA04408**
 B.Tech CSE, VFSTR University  
