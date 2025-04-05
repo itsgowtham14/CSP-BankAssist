@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Change PIN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #6A8CFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 30%;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 16px;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            text-align: center;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #007bff;
+        }
+
+        .button-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .submit {
+            background-color: #e6f7e6;
+            color: #28a745;
+        }
+
+        .submit:hover {
+            background-color: #c3e6cb;
+        }
+
+        .cancel {
+            background-color: #ffe6e6;
+            color: #dc3545;
+        }
+
+        .cancel:hover {
+            background-color: #f5c6cb;
+        }
+
+        .cancel img {
+            margin-right: 10px;
+            height: 24px;
+        }
+
+        .error-message {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .footer {
+	    text-align: center;
+	    padding: 10px;
+	    background-color: white;
+	    font-size: 14px;
+	    color: #333;
+	    font-weight: 500;
+	    position: fixed;
+	    bottom: 0;
+	    left: 0;
+	    width: 100%;
+	    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+	}
+	        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Change ATM PIN</h2>
+        <div id="errorBox" class="error-message" style="display: none;"></div>
+        <form action="change-pin" method="POST">
+            <label for="accountNumber">Account Number:</label>
+            <input type="text" name="accountNumber" required placeholder="Enter your account number" />
+
+            <label for="oldPin">Old PIN:</label>
+            <input type="password" name="oldPin" pattern="[0-9]{4}" maxlength="4" required placeholder="****" />
+
+            <label for="newPin">New PIN:</label>
+            <input type="password" name="newPin" pattern="[0-9]{4}" maxlength="4" required placeholder="****" />
+
+            <label for="confirmPin">Confirm New PIN:</label>
+            <input type="password" name="confirmPin" pattern="[0-9]{4}" maxlength="4" required placeholder="****" />
+
+            <div class="button-grid">
+                <button type="submit" class="btn submit">Submit</button>
+                <button type="button" onclick="window.location.href='transactions.html'" class="btn cancel">
+                    <img src="cancel_icon.png" alt="Cancel Icon" />Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="footer">
+	    &copy; 2025 <strong>CSP Bank Assist</strong> — All Rights Reserved.
+	</div>
+	    
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const error = params.get("error");
+        if (error) {
+            const errorBox = document.getElementById("errorBox");
+            let message = "";
+
+            switch (error) {
+                case "confirm_mismatch":
+                    message = "New PIN and Confirm PIN do not match.";
+                    break;
+                case "invalid_old_pin":
+                    message = "Invalid old PIN or account number.";
+                    break;
+                case "update_failed":
+                    message = "Failed to update PIN. Try again.";
+                    break;
+                case "server_error":
+                    message = "Unexpected server error. Please try again later.";
+                    break;
+            }
+
+            if (message) {
+                errorBox.style.display = "block";
+                errorBox.textContent = message;
+            }
+        }
+    </script>
+</body>
+</html>

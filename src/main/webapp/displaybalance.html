@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Balance Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #6A8CFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .balance-box {
+            font-size: 24px;
+            font-weight: bold;
+            color: #28a745;
+            padding: 20px;
+            border: 2px solid #28a745;
+            border-radius: 10px;
+            background: #e6f7e6;
+            display: inline-block;
+            margin: 15px 0;
+            width: 80%;
+        }
+
+        .error {
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+        .footer {
+	    text-align: center;
+	    padding: 10px;
+	    background-color: white;
+	    font-size: 14px;
+	    color: #333;
+	    font-weight: 500;
+	    position: fixed;
+	    bottom: 0;
+	    left: 0;
+	    width: 100%;
+	    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+	}
+	        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Your Account Balance</h2>
+        <p id="balance-display"></p>
+        <a href="thankyou.html" class="btn">Proceed</a>
+    </div>
+    <div class="footer">
+	    &copy; 2025 <strong>CSP Bank Assist</strong> — All Rights Reserved.
+	</div>
+	    
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const balance = urlParams.get('balance');
+        const balanceDisplay = document.getElementById("balance-display");
+
+        if (balance && !isNaN(balance)) {
+            balanceDisplay.innerHTML = `<div class="balance-box">₹ ${balance}</div>`;
+        } else {
+            balanceDisplay.innerHTML = `<p class="error">Error fetching balance. Please try again.</p>`;
+        }
+    </script>
+
+</body>
+</html>

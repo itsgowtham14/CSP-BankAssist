@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter PIN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #6A8CFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            width: 30%;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 90%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 18px;
+            outline: none;
+            text-align: center;
+        }
+        input:focus {
+            border-color: #007bff;
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+        .submit {
+            background-color: #e6f7e6;
+            color: #28a745;
+        }
+        .submit:hover {
+            background-color: #c3e6cb;
+        }
+        .cancel {
+            background-color: #ffe6e6;
+            color: #dc3545;
+        }
+        .cancel:hover {
+            background-color: #f5c6cb;
+        }
+        .cancel img {
+            margin-right: 10px;
+            height: 24px;
+        }
+        .info {
+            font-size: 16px;
+            color: #666;
+            margin: 10px 0;
+        }
+        .error-box {
+            background-color: #ffe6e6;
+            color: #dc3545;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: none;
+        }
+        .footer {
+	    text-align: center;
+	    padding: 10px;
+	    background-color: white;
+	    font-size: 14px;
+	    color: #333;
+	    font-weight: 500;
+	    position: fixed;
+	    bottom: 0;
+	    left: 0;
+	    width: 100%;
+	    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+	}
+	        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Your PIN</h2>
+
+        <div id="errorBox" class="error-box"></div>
+
+        <form action="verify-pin" method="POST">
+            <label for="pin">PIN:</label>
+            <input type="password" id="pin" name="pin" pattern="[0-9]{4}" maxlength="4" required placeholder="****">
+            <button type="submit" class="btn submit">Submit</button>
+        </form>
+
+        <button onclick="window.location.href='transactions.html'" class="btn cancel">
+            <img src="cancel_icon.png" alt="Cancel Icon">Cancel
+        </button>
+    </div>
+    <div class="footer">
+	    &copy; 2025 <strong>CSP Bank Assist</strong> — All Rights Reserved.
+	</div>
+	    
+
+    <script>
+        // Get URL params
+        const params = new URLSearchParams(window.location.search);
+        const error = params.get("error");
+        const errorBox = document.getElementById("errorBox");
+
+        // Match errors to messages
+        if (error) {
+            let message = "";
+            switch (error) {
+                case "invalid_pin":
+                    message = "Incorrect PIN. Please try again.";
+                    break;
+                case "missing_pin":
+                    message = "PIN is required.";
+                    break;
+                case "invalid_amount":
+                    message = "Invalid amount for transaction.";
+                    break;
+                case "invalid_amount_format":
+                    message = "Amount format is incorrect.";
+                    break;
+                case "transaction_failed":
+                    message = "Transaction failed. Possible insufficient balance.";
+                    break;
+                case "invalid_transaction_type":
+                    message = "Invalid transaction type.";
+                    break;
+                default:
+                    message = "An unknown error occurred.";
+            }
+            errorBox.textContent = message;
+            errorBox.style.display = "block";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSP Guide</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #6A8CFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+        	height: 80%;
+            width: 90%;
+            max-width: 900px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #444;
+            margin-top: 20px;
+        }
+
+        ul {
+            list-style-type: disc;
+            padding-left: 25px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .warning {
+            background-color: #ffe6e6;
+            border-left: 6px solid #dc3545;
+            color: #a30000;
+            padding: 15px 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .back-button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            background-color: #ffe6e6;
+            color: #dc3545;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+        }
+
+        .back-button:hover {
+            background-color: #f5c6cb;
+            transform: translateY(-3px);
+        }
+
+        .back-button img {
+            margin-right: 10px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📘 CSP Guidelines</h1>
+
+        <h2>🏦 1. Customer Verification</h2>
+        <ul>
+            <li>Always verify the customer’s identity before proceeding with any transaction.</li>
+            <li>Cross-check account number, registered mobile number, and customer ID card if required.</li>
+        </ul>
+
+        <h2>💵 2. Transaction Handling</h2>
+        <ul>
+            <li>Handle deposits, withdrawals, and balance enquiries carefully.</li>
+            <li>Enter transaction details accurately into the system.</li>
+            <li>Double-check amount and account number before confirming.</li>
+        </ul>
+
+        <h2>🔐 3. ATM PIN Management</h2>
+        <ul>
+            <li>Allow PIN changes only after verifying customer identity.</li>
+            <li>PIN must be exactly 4 digits and kept confidential.</li>
+            <li><strong>PIN must be entered by the customer using the customer’s keyboard to ensure confidentiality.</strong></li>
+        </ul>
+
+        <h2>🧾 4. Record Maintenance</h2>
+        <ul>
+            <li>Maintain records of all transactions performed through your CSP.</li>
+            <li>Provide printed receipts to customers when needed.</li>
+        </ul>
+
+        <div class="warning">
+            ⚠️ Important Notice:<br><br>
+            The CSP is under strict surveillance. All activities are being monitored in real-time.<br><br>
+            If CSP operations are not conducted as per the official guidelines, <strong>severe disciplinary actions will be taken</strong>. This may include the filing of a criminal case or other suitable legal actions against the CSP operator.
+        </div>
+
+        <!-- Back button to home_bank.html -->
+        <a href="home_bank.html" class="back-button">
+            <img src="cancel_icon.png" alt="Back Icon">Back to Home
+        </a>
+    </div>
+</body>
+</html>

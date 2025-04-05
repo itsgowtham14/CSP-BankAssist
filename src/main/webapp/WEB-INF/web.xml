@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0"
+         metadata-complete="true">
+
+    <!-- Login Servlet -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>com.csp.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Account Validation Servlet -->
+    <servlet>
+        <servlet-name>AccountValidationServlet</servlet-name>
+        <servlet-class>com.csp.AccountValidationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccountValidationServlet</servlet-name>
+        <url-pattern>/validate-account</url-pattern>
+    </servlet-mapping>
+
+    <!-- Pin Verification Servlet -->
+    <servlet>
+        <servlet-name>VerifyPinServlet</servlet-name>
+        <servlet-class>com.csp.VerifyPinServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VerifyPinServlet</servlet-name>
+        <url-pattern>/verify-pin</url-pattern>
+    </servlet-mapping>
+
+    <!-- Deposit Servlet -->
+    <servlet>
+        <servlet-name>DepositServlet</servlet-name>
+        <servlet-class>com.csp.DepositServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DepositServlet</servlet-name>
+        <url-pattern>/deposit</url-pattern>
+    </servlet-mapping>
+
+    <!-- Withdraw Servlet -->
+    <servlet>
+        <servlet-name>WithdrawServlet</servlet-name>
+        <servlet-class>com.csp.WithdrawServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WithdrawServlet</servlet-name>
+        <url-pattern>/withdraw</url-pattern>
+    </servlet-mapping>
+
+    <!-- Balance Enquiry Servlet (Newly Added) -->
+    <servlet>
+        <servlet-name>BalanceEnquiryServlet</servlet-name>
+        <servlet-class>com.csp.BalanceEnquiryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BalanceEnquiryServlet</servlet-name>
+        <url-pattern>/balance-enquiry</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+    <servlet-name>ChangePinServlet</servlet-name>
+    <servlet-class>com.csp.ChangePinServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+	    <servlet-name>ChangePinServlet</servlet-name>
+	    <url-pattern>/change-pin</url-pattern>
+	</servlet-mapping>
+    
+
+    <!-- Welcome File -->
+    <welcome-file-list>
+        <welcome-file>pages/login.html</welcome-file>
+    </welcome-file-list>
+</web-app>
